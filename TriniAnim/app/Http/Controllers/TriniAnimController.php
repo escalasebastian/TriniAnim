@@ -47,7 +47,6 @@ class TriniAnimController extends Controller
             }
             // add array
             array_push($arrayEventos, $eventoNuevo);
-            
         }
         return view('trini.resumen-diario', [
             'eventos' => $arrayEventos
@@ -60,6 +59,33 @@ class TriniAnimController extends Controller
     {
         // dashboard?
     }
+
+
+    public function getMedia(){
+        $sumatorio=0;
+        $usuario_id = Auth::user()->id;
+
+        $eventos = Evento::where('usuario_id', $usuario_id)->get();
+
+        foreach ($eventos as $evento) {
+            $sumatorio+=$evento->emocion_id;
+        }
+        $media= round($sumatorio/sizeof($eventos));
+
+
+        $emocionResumen=Emocion::find($media);
+
+        
+
+        
+        
+        return view('trini.media-diaria', [
+            'imagen'=> $emocionResumen->imagen
+        ]);
+        
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -86,7 +112,6 @@ class TriniAnimController extends Controller
         $evento->usuario_id = Auth::user()->id;
         $evento->actividad_id = $request->act;
         $evento->emocion_id = $request->em;
-        $evento->descripcion=$request->descripcion;
         // Se guarda en la db
         $evento->save();
         // En el redirect va la url

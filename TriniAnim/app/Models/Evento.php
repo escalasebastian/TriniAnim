@@ -11,8 +11,7 @@ class Evento extends Model
     protected $fillable=[
         'usuario_id',
         'actividad_id',
-        'emocion_id', 
-        'descripcion'
+        'emocion_id'
     ];
 
 }

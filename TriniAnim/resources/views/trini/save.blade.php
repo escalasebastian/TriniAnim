@@ -31,9 +31,13 @@
             </select>
             <br>
             Emocion:
-            <br>
-            Descripción:
-            <input type="text" name="descripcion">
+            <select name="em" class="form-select">
+                @foreach ($emociones as $item)
+                    <option value='{{ $item->id }}'>{{ $item->emocion }}</option>
+                @endforeach
+            </select>
+
+            
             <br>
             <input type="submit" value="Guardar" class="btn btn-primary m-2">
         </form>

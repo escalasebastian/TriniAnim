@@ -28,7 +28,15 @@
         @endif
 
         <!-- Cuerpo -->
+
+        <!-- MOSTRAR RESUMEN DE EMOCIONES -->
         <h1 class="mt-5">Resumen diario</h1>
+        <div id="resumen"></div>
+
+
+        <button type="button" onclick="loadEmocion()">Mostrar Resumen</button>
+
+
         @foreach ($eventos as $evento)
             <div class="m-3" style="background-color: gray">
                 <form action='{{ url("trini/$evento->id") }}' method="post"> <!-- Esto es para el delete? -->
@@ -58,3 +66,18 @@
 </body>
 
 </html>
+
+
+<script>
+    function loadEmocion() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("resumen").innerHTML =
+          this.responseText;
+        }
+      };
+      xhttp.open("GET", '/resumen', true);
+      xhttp.send();
+    }
+    </script>
