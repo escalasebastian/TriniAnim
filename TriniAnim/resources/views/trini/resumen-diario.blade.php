@@ -44,13 +44,15 @@
 
         @foreach ($eventos as $evento)
             <div class="m-3" style="background-color: gray">
-                <form action='{{ url("trini/$evento->id") }}' method="post"> <!-- Esto es para el delete? -->
+                <form action='{{ url("trini/$evento->id") }}' method="POST"> <!-- Esto es para el delete? -->
+                    @csrf
+                    @method('DELETE')
                     {{ $evento['actividad'] }}
                     {{ $evento['emocion'] }}
                     {{ $evento['fecha'] }}
                     {{ $evento['hora'] }}
-                    @csrf
-                    <input type="hidden" name="_method" value="DELETE">
+                    
+  
                     <input type="submit" value="Eliminar" class="btn btn-primary ml-4 mt-2 mb-2">
                     <!-- botones -->
 

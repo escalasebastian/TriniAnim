@@ -9,6 +9,7 @@ class EventoN extends Model
 {
     use HasFactory;
     protected $fillable=[
+        'id',
         'actividad',
         'emocion',
         'fecha',

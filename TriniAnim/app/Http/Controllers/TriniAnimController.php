@@ -19,8 +19,12 @@ class TriniAnimController extends Controller
         $usuario_id = Auth::user()->id;
         $eventos = Evento::where('usuario_id', $usuario_id)->get();
         $arrayEventos = array();
+
         foreach ($eventos as $eventoViejo) {
             $eventoNuevo = new EventoN();
+            //introduccion id
+            $eventoNuevo->id=$eventoViejo->id;
+
             // Creación actividad
             $actividad = Actividad::find($eventoViejo->actividad_id);
             $eventoNuevo->actividad = $actividad->nombre;
@@ -145,6 +149,9 @@ class TriniAnimController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //ELIMIAR EVENTO CONCRETO
+        $evento=Evento::find($id);
+        $evento->delete();
+        return Redirect::to('/dashboard') -> with('notificacion','Evento eliminado correctamente');
     }
 }

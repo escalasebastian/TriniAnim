@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('trini', TriniAnimController::class);
+
 Route::get('/resumen', [TriniAnimController::class, 'getMedia']);
 
-Route::resource('trini', TriniAnimController::class);
+
 
 Route::get('/', function () {
     return view('auth.login');
