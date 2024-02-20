@@ -1,0 +1,78 @@
+* {
+	font-family: arial, TelefonicaThin, sans-serif, helvetica;
+}
+
+/* ENCABEZADO */
+.cabecera{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.logo {
+	width: 160px;
+}
+
+.contenedorLinea{
+	display: flex;
+	align-items: center;
+}
+
+.linea{
+	width: 100%;
+	border: 2px solid black;
+}
+
+/*TITULO*/
+.contTitulo{
+	text-align: center;
+}
+
+.titulo{
+	border: 2px solid #eeff41;
+}
+
+/* INPUT */
+.txt{
+	text-align: center;
+	border-radius: 0px;
+	padding: 15px;
+}
+
+.txt:focus{
+	border-color:#69699b;
+}
+
+/* BOTONES */
+.contBtnLog{
+	text-align: right;
+}
+
+.contBtnReg{
+	text-align: center;
+}
+
+.btn{
+	background-color: #eeff41;
+	border-radius: 0px;
+	padding: 10px 15px;
+	width: 160px;
+}
+
+.btn:hover{
+	background-color: #111246;
+	color:white;
+}
+
+#btnL{
+	font-weight: bold;
+}
+
+
+/* ERRORES */
+.error{
+    /* da estilo a la lista que contiene el error */
+    color: #dc3545;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
