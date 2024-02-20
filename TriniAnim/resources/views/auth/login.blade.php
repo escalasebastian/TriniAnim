@@ -8,7 +8,7 @@
         <!-- userName -->
         <div>
             <x-input-label for="userName" :value="__('Nombre de Usuario')" />
-            <x-text-input id="userName" class="block mt-1 w-full" type="text" name="userName" :value="old('userName')" required autofocus autocomplete="username" placeholder="USUARIO"/>
+            <x-text-input id="userName" class="block mt-1 w-full" type="text" name="userName" :value="old('userName')" autofocus autocomplete="username" placeholder="USUARIO"/>
             <x-input-error :messages="$errors->get('userName')" class="mt-2" />
         </div>
 
@@ -19,7 +19,7 @@
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
                             name="password"
-                            required autocomplete="current-password" />
+                            autocomplete="current-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>

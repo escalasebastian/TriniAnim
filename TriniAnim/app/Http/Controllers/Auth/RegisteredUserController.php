@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Validation\Rules\Password;
 use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
@@ -33,7 +34,9 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:30'],
             'userName' => ['required', 'string', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed','min:4','max:10' ],
+            'password' => ['required', 'confirmed','min:4','max:10', Password::min(4)
+                                                                    ->mixedCase()
+                                                                    ->numbers()]
         ]);
 
         $user = User::create([
@@ -44,7 +47,7 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Auth::login($user);
+        //Auth::login($user); ASI EVITAMOS QUE HAGA LOGIN AUTOMATICAMENTE
 
         return redirect('/');
     }
