@@ -74,9 +74,6 @@ class TriniAnimController extends Controller
 
 
         $emocionResumen=Emocion::find($media);
-
-        
-
         
         
         return view('trini.media-diaria', [

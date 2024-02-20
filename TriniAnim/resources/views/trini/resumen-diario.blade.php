@@ -20,21 +20,26 @@
 
     <div class="container min-h-screen">
         @include('layouts.navigation')
+
         <!-- Alerta  -->
+
+    <div id="notificacion">
         @if (Session::has('notificacion'))
             <div class="alert alert-primary" role="alert">
                 <strong>{{ Session::get('notificacion') }}</strong>
             </div>
         @endif
+    </div>    
 
         <!-- Cuerpo -->
 
         <!-- MOSTRAR RESUMEN DE EMOCIONES -->
-        <h1 class="mt-5">Resumen diario</h1>
+
+        <button type="button" onclick="loadEmocion()" class="btn btn-danger mt-5" style="background-color: black">Mostrar Resumen</button>
         <div id="resumen"></div>
 
 
-        <button type="button" onclick="loadEmocion()">Mostrar Resumen</button>
+        
 
 
         @foreach ($eventos as $evento)
@@ -46,8 +51,10 @@
                     {{ $evento['hora'] }}
                     @csrf
                     <input type="hidden" name="_method" value="DELETE">
-                    <input type="submit" value="Eliminar" class="btn btn-primary m-1">
+                    <input type="submit" value="Eliminar" class="btn btn-primary ml-4 mt-2 mb-2">
                     <!-- botones -->
+
+                    {{--
                     <a href='{{ url("trini/$evento->id/edit") }}' class="btn btn-primary m-1">Editar</a>
                     <!-- Voy a la url de edicion con el id del que quiero editar -->
                     <!-- Primera forma de hacer el ver, te lleva a otra página -->
@@ -56,6 +63,8 @@
                     <button type="button" class="btn btn-primary m-1" onclick="cargar({{ $evento->id }})">Ver en la
                         misma
                         página</button>
+                        --}}
+                    
                 </form>
             </div>
         @endforeach
@@ -67,7 +76,7 @@
 
 </html>
 
-
+{{--SCRIPT AJAX--}}
 <script>
     function loadEmocion() {
       var xhttp = new XMLHttpRequest();
@@ -81,3 +90,11 @@
       xhttp.send();
     }
     </script>
+
+
+{{--SCRIPT CONTROL ALERTA NOTIFICACION--}}
+<script>
+    setTimeout(function(){
+        document.getElementById('notificacion').style.display = 'none';
+    }, 1500);
+</script>

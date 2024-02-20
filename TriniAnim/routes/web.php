@@ -23,9 +23,17 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', [
+    TriniAnimController::class, 'prueba'
+])->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
+/*
+Route::get('/dashboard2', function () {
     return view('pruebaIndex');
 })->middleware(['auth', 'verified'])->name('dashboard');
+*/
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
