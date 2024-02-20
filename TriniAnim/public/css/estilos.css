@@ -1,0 +1,267 @@
+* {
+	font-family: arial, TelefonicaThin, sans-serif, helvetica;
+}
+
+/* ENCABEZADO */
+.logo {
+	width: 160px;
+}
+
+.contenedorLinea{
+	display: flex;
+	align-items: center;
+}
+
+.linea{
+	width: 100%;
+	border: 2px solid black;
+}
+
+/*TITULO*/
+.contTitulo{
+	text-align: center;
+}
+
+.titulo{
+	border: 2px solid #eeff41;
+}
+
+/* INPUT */
+.txt{
+	text-align: center;
+	border-radius: 0px;
+	padding: 15px;
+}
+
+.txt:focus{
+	border-color:#69699b;
+}
+
+/* BOTONES */
+.contBtnLog{
+	text-align: right;
+}
+
+.contBtnReg{
+	text-align: center;
+}
+
+.btn{
+	background-color: #eeff41;
+	border-radius: 0px;
+	padding: 10px 15px;
+	width: 160px;
+}
+
+.btn:hover{
+	background-color: #111246;
+	color:white;
+}
+
+#btnL{
+	font-weight: bold;
+}
+
+h2 {
+	color: #4ea800 !important;
+}
+
+h3{
+	color: #009BCE !important;
+	font-size: 18px !important;
+	margin-bottom: 1px !important;
+}
+
+h4 {
+	color: darkblue !important;
+	font-size: 15px !important;
+	margin-bottom: 1px !important;
+	margin-left: 2px;
+}
+
+
+.cabecera{
+	text-align: center;
+	margin-top: 20px;
+}
+
+#sepDatos{
+	margin-top: 10px;
+}
+
+
+/*INPUT*/
+.cajaText {
+	border-width: 1px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-radius: 0px;
+	margin: 0px;
+	width: 200px;
+	height: 36px;
+	color: grey;
+	border-color: #ced4da;
+	padding: 0.375rem 0.75rem;
+}
+
+.cajaTextError {
+	color: #dc3545;
+}
+
+
+/*TEXTAREA*/
+.txtArea{
+	border-width: 1px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	width: 200px;
+	border-color: #ced4da;
+    padding: 0.375rem 0.75rem;
+	border-radius: 0px;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+/* CHECKBOX */
+#check{
+	margin-top: 10px;
+	text-align: center;
+	height: 20px;
+}
+
+.aspectoCheck {
+	 transform: scale(1.2); /* cambia el tamaño del recuadro */
+}
+
+.txtCheck {
+	margin-left: 10px;
+	margin-bottom: 0px;
+	color: grey;
+}
+
+.txtCheckNegro {
+	margin-left: 10px;
+	margin-bottom: 0px;
+	color: black;
+}
+
+/*RADIO BUTTON*/
+.txtRadio{
+	margin-left: 10px;
+	margin-bottom: 0px;
+	color: grey;
+}
+
+/* Estilos para el label del radio button y checkBox seleccionado */
+.mi-radio:checked + label{
+    font-weight: bold;
+    color: #0075ff;
+}
+
+/* BOTONES */
+#botones{
+	text-align: center;
+}
+
+.btn1{
+	color: white;
+	background-color: #66a62e;
+    border-width: 1px;
+    padding: 10px 15px;
+	text-align: center;
+	border-color: #66a62e;
+}
+
+.btn1:hover{
+	background-color: #4EA800;
+	border-color: #4EA800;
+}
+
+.btn2 {
+    background-color: #FFFFFF;
+    border-color: #009BCE;
+    color: #009BCE;
+    border-width: 1px;
+    padding: 10px 15px;
+}
+
+
+.enlace{
+	background-color: #FFFFFF;
+    border-color: #009BCE;
+    color: #009BCE;
+    border-width: 1px;
+    padding: 10px 15px;
+	border: 1px solid;
+}
+
+
+.btn2:hover{
+	color: #1bb2e4;
+}
+
+.btn3{
+    background-color: #ff0000;
+    border-color: #640000;
+    color: gold;
+    border-width: 1px;
+    padding: 10px 15px;
+}
+
+.btn3:hover{
+	background-color: #640000;
+}
+
+#btnSig{
+	text-align: center;
+}
+
+.btnSig {
+    background-color: #009BCE;
+    /* border-color: #009BCE; */
+	border: none;
+    color: #FFFFFF;
+    border-width: 1px;
+    padding: 0px 15px;
+	margin-top: 10px;
+}
+
+
+.btnSig:hover{
+	font-weight: bold;
+}
+
+/*TABLA*/
+.tabla{
+	margin-top: 18px;
+}
+
+/*Pag confirmación*/
+.mensaje{
+	margin-top: 50px;
+	border: 2px solid #ced4da;
+	padding: 10px;
+}
+
+/* Alinea contenido al centro tanto vertical como horizontalmente */
+.tic {
+    display: flex;
+	align-items: center;
+    justify-content: center;
+}
+/* Alinea contenido al centro tanto vertical como horizontalmente */
+.msj{
+	display: flex;
+	align-items: center;
+}
+
+#imgTic{
+	width: 50px;
+}
+.txtMensaje {
+    margin: 0;
+}
