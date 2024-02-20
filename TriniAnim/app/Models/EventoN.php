@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Evento extends Model
+class EventoN extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'usuario_id',
-        'actividad_id',
-        'emocion_id', 
-        'descripcion'
+        'actividad',
+        'emocion_nombre',
+        'fecha',
+        'hora'
     ];
 }

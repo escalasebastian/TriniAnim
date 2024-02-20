@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('emocions', function (Blueprint $table) {
             $table->id();
-            $table->integer('emocion');
+            $table->string('emocion');
             $table->string('imagen');
             $table->timestamps();
         });
