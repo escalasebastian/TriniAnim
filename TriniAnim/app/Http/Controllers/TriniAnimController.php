@@ -68,9 +68,10 @@ class TriniAnimController extends Controller
 
         $emocionResumen=Emocion::find($media);
         
-        
+        $nombreArray=explode("b",$emocionResumen->imagen);
+        $imagenN=$nombreArray[0].$nombreArray[1];
         return view('trini.media-diaria', [
-            'imagen'=> $emocionResumen->imagen
+            'imagen'=> $imagenN
         ]);
     }
 

@@ -27,13 +27,24 @@
         @endif
     </div>    
 
-    
+
 
         <!-- Cuerpo -->
         <div class="cuerpo">
+            
+
             <div class="row mt-4">
                 <div class="col-12 contTitulo">
                     <h1 class="titulo">Resumen diario</h1>
+                </div>
+            </div>
+            {{-- AJAX estado --}}
+            <div class="row">
+                <div class="col-6">
+                    <button type="button" onclick="loadEmocion()" class="btn m-5" >Mostrar Resumen</button>
+                </div>
+                <div class="col-6">
+                    <div id="resumen"></div>
                 </div>
             </div>
 
@@ -54,9 +65,9 @@
                         </div>
                         
                         
-                        <input type="submit" value="Eliminar" class="btn btn-primary ml-4 mt-2 mb-2">
+                        <input type="submit" value="Eliminar" class="btn  ml-4 mt-2 mb-2">
                         <!-- botones -->
-                        <a href='{{ url("trini/$evento->id/edit") }}' class="btn btn-primary m-1">Editar</a>
+                        <a href='{{ url("trini/$evento->id/edit") }}' class="btn  m-1">Editar</a>
                     </form>
                 </div>
             @endforeach
@@ -64,12 +75,14 @@
             
             <div class="row">
                 <!-- Btn crear -->
-                <div class="col-6 contBtnLog">
+
+                {{-- <div class="col-6 contBtnLog">
                     <a class="btn" href="">
                         ESTADO
                     </a>
-                </div>
-                <div class="col-6">
+                </div> --}}
+
+                <div class="col-12" style="text-align: center">
                     <a href='{{ url('trini/create') }}' class="btn btnN">AÑADIR</a>
                 </div>
                 
