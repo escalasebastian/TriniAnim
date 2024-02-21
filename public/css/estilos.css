@@ -36,6 +36,7 @@
 	text-align: center;
 	border-radius: 0px;
 	padding: 15px;
+	border-color:#69699b;
 }
 
 .txt:focus{
@@ -75,4 +76,42 @@
     list-style-type: none;
     padding: 0px;
     margin: 0px;
+}
+
+
+/* BARRA */
+.barra{
+	height: 140px;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid black;
+}
+
+.logoB {
+	width: 140px;
+}
+
+.desplegable{
+	margin-top: 5px;
+}
+
+/* RESUMEN DIARIO */
+.registro{
+	padding: 15px;
+	text-align: center;
+    color: grey;
+	border: 1px solid #69699b;
+}
+
+.btnN{
+	font-weight: bold;
+}
+
+/*NUEVA ACTIVIDAD*/
+.select{
+	width: 100%;
+	padding: 15px;
+	text-align: center;
+	border-radius: 0px;
+	border: 1px solid #69699b;
 }
