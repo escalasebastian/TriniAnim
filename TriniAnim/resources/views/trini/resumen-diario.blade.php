@@ -56,8 +56,9 @@
                     <input type="submit" value="Eliminar" class="btn btn-primary ml-4 mt-2 mb-2">
                     <!-- botones -->
 
-                    {{--
+                    
                     <a href='{{ url("trini/$evento->id/edit") }}' class="btn btn-primary m-1">Editar</a>
+                    {{--
                     <!-- Voy a la url de edicion con el id del que quiero editar -->
                     <!-- Primera forma de hacer el ver, te lleva a otra página -->
                     <a href='{{ url("trini/$evento->id") }}' class="btn btn-primary m-1">Ver en otra página</a>

@@ -13,18 +13,18 @@ use Illuminate\Support\Facades\Redirect;
 
 class TriniAnimController extends Controller
 {
-
-    public function prueba()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
         $usuario_id = Auth::user()->id;
         $eventos = Evento::where('usuario_id', $usuario_id)->get();
         $arrayEventos = array();
-
         foreach ($eventos as $eventoViejo) {
             $eventoNuevo = new EventoN();
             //introduccion id
             $eventoNuevo->id=$eventoViejo->id;
-
             // Creación actividad
             $actividad = Actividad::find($eventoViejo->actividad_id);
             $eventoNuevo->actividad = $actividad->nombre;
@@ -56,13 +56,6 @@ class TriniAnimController extends Controller
             'eventos' => $arrayEventos
         ]);
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        // dashboard?
-    }
 
 
     public function getMedia(){
@@ -83,10 +76,7 @@ class TriniAnimController extends Controller
         return view('trini.media-diaria', [
             'imagen'=> $emocionResumen->imagen
         ]);
-        
     }
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -95,7 +85,6 @@ class TriniAnimController extends Controller
     {
         $evento = new Evento();
         $listaAct = DB::select('select distinct * from actividads');
-        //return $listaAct;
         $listaEm = DB::select('select distinct * from emocions');
         return view('trini.save', [
             'evento' => $evento,
@@ -116,8 +105,7 @@ class TriniAnimController extends Controller
         // Se guarda en la db
         $evento->save();
         // En el redirect va la url
-        return Redirect::to('/prueba')->with('notificacion', 'Se creó el evento correctamente');
-        //return "ha llegado: " . $evento;
+        return Redirect::to('/trini')->with('notificacion', 'Se creó el evento correctamente');
     }
 
     /**
@@ -133,7 +121,14 @@ class TriniAnimController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $evento = Evento::find($id);
+        $listaAct = DB::select('select distinct * from actividads');
+        $listaEm = DB::select('select distinct * from emocions');
+        return view('trini.save', [
+            'evento' => $evento,
+            'actividades' => $listaAct,
+            'emociones' => $listaEm
+        ]);
     }
 
     /**
@@ -141,7 +136,14 @@ class TriniAnimController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $evento = Evento::find($id);
+        $evento->usuario_id = Auth::user()->id;
+        $evento->actividad_id = $request->act;
+        $evento->emocion_id = $request->em;
+        // Se guarda en la db
+        $evento->save();
+        // En el redirect va la url
+        return Redirect::to('/trini')->with('notificacion', 'Se actualizó el evento correctamente');
     }
 
     /**

@@ -42,7 +42,7 @@
             <input type="submit" value="Guardar" class="btn btn-primary m-2">
         </form>
 
-        <a href='{{ url('prueba') }}' class="btn btn-dark m-2">Cancelar</a>
+        <a href='{{ url('trini') }}' class="btn btn-dark m-2">Cancelar</a>
     </div>
 </body>
 

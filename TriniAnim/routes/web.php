@@ -19,17 +19,13 @@ Route::resource('trini', TriniAnimController::class);
 
 Route::get('/resumen', [TriniAnimController::class, 'getMedia']);
 
-
-
 Route::get('/', function () {
     return view('auth.login');
 });
 
 Route::get('/dashboard', [
-    TriniAnimController::class, 'prueba'
+    TriniAnimController::class, 'index'
 ])->middleware(['auth', 'verified'])->name('dashboard');
-
-
 
 /*
 Route::get('/dashboard2', function () {
@@ -43,8 +39,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('prueba', [TriniAnimController::class, 'prueba']);
-
-
+//Route::get('prueba', [TriniAnimController::class, 'prueba']);
 
 require __DIR__.'/auth.php';
