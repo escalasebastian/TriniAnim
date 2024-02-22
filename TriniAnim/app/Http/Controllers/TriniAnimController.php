@@ -80,7 +80,15 @@ class TriniAnimController extends Controller
      */
     public function index()
     {
+
+        
+        
         $usuario_id = Auth::user()->id;
+        $tipoUser=Auth::user()->is_admin;
+
+     
+
+        if($tipoUser===0){
         $eventos = Evento::where('usuario_id', $usuario_id)->get();
         $arrayEventos = array();
         foreach ($eventos as $eventoViejo) {
@@ -117,6 +125,14 @@ class TriniAnimController extends Controller
         return view('trini.resumen-diario', [
             'eventos' => $arrayEventos
         ]);
+    }else if($tipoUser===1){
+
+        return view('trini.admin');
+
+    }
+
+
+
     }
 
 
