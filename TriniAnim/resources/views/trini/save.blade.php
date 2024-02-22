@@ -9,9 +9,14 @@
     <link rel="stylesheet" href='{{url("css/estilos.css")}}'>
     <link rel="icon" type="image/x-icon" href="imagenes/logo.png">
     <title>Nuva actividad</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
+    {{-- CABECERA --}}
+    <div class="container-fluid barraNavegacion">
+        @include('layouts.navigation')
+    </div>
     <div class="container">
         <!-- Cuerpo -->
         <div class="cuerpo">
@@ -22,49 +27,51 @@
             </div>
 
             <div>
-                <form action='{{ url("trini/$evento->id") }}' method="post">
+                <form autocomplete="off" action='{{ url("trini/$evento->id") }}' method="post">
                     @csrf
                     @if ($evento->id)
                         <input type="hidden" name="_method" value="put">
                     @endif
 
-                    {{-- ACTIVIDAD --}}
-                    <div class="row mb-3 mt-3">
-                        <div class="col-12">
-                            <select name="act" class="form-select select">
-                                @foreach ($actividades as $item)
-                                    <option value='{{ $item->id }}'>{{ $item->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-
-                    {{-- ESTADO --}}
-                    <div class="registro">
-                        <div class="row">
+                    <div class="registros" style="margin-top: 15px">
+                        {{-- ACTIVIDAD --}}
+                        <div class="row mb-3">
                             <div class="col-12">
-                                @foreach ($emociones as $item)
-                                    {{-- Asocia al radio la imagen (al seleccionar la imagen se selecciona el radio oculto) --}}
-                                    <label>
-                                        <input class="d-none" name="em" type="radio" value="{{$item->id}}" onclick="prueba({{$item->id}})" >
-                                        <img class="imagenes" src='{{url("imagenes/".$item->imagen)}}' id="{{$item->id}}">
-                                    </label>
-                                @endforeach
-                            </div> 
+                                <select name="act" class="form-select select">
+                                    @foreach ($actividades as $item)
+                                        <option value='{{ $item->id }}'>{{ $item->nombre }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
-                    </div>  
 
-                    {{-- DESCRIPCION --}}
-                    <div class="row mt-3">
-                        <div class="col-12">
-                            <input type="text" class="form-control txt" name="descripcion" placeholder="Descripcion">
+                        {{-- ESTADO --}}
+                        <div class="registro" style="background-color: white">
+                            <div class="row">
+                                <div class="col-12">
+                                    @foreach ($emociones as $item)
+                                        {{-- Asocia al radio la imagen (al seleccionar la imagen se selecciona el radio oculto) --}}
+                                        <label>
+                                            <input class="d-none" name="em" type="radio" value="{{$item->id}}" onclick="prueba({{$item->id}})" >
+                                            <img class="imagenes" src='{{url("imagenes/".$item->imagen)}}' id="{{$item->id}}">
+                                        </label>
+                                    @endforeach
+                                </div> 
+                            </div>
+                        </div>  
+
+                        {{-- DESCRIPCION --}}
+                        <div class="row mt-3 mb-2">
+                            <div class="col-12">
+                                <input type="text" class="form-control txt" name="descripcion" placeholder="Descripcion">
+                            </div>
                         </div>
                     </div>
-
+ 
                     {{-- BOTON --}}
-                    <div class="row mt-3">
+                    <div class="row mt-4 mb-4">
                         <div class="col-6 contBtnLog">
-                            <a href='{{ url('prueba') }}' class="btn">Cancelar</a>
+                            <a href='{{ url('trini') }}' class="btn">Cancelar</a>
                         </div>
                         <div class="col-6">
                             <input type="submit" value="Guardar" class="btn btnN">
