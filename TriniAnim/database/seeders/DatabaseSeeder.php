@@ -18,5 +18,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        
+        // Esto llamam a UserFactory
+        \App\Models\User::factory(10)->create();
+        // Esto llama a AdminSeeder para que ejecute su metodo run
+        $this->call(AdminSeeder::class);
     }
 }
