@@ -36,6 +36,12 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed','min:4','max:10' ],
         ]);
 
+        /*
+        'password' => ['required', 'confirmed','min:4','max:10', Password::min(4)
+                                                                    ->mixedCase()
+                                                                    ->numbers()]
+        */
+
         $user = User::create([
             'name' => $request->name,
             'userName' => $request->userName,
@@ -44,7 +50,7 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Auth::login($user);
+        //Auth::login($user);
 
         return redirect('/');
     }
