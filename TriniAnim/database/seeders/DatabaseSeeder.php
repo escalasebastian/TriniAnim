@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
 
         
         // Esto llamam a UserFactory
-        \App\Models\User::factory(10)->create();
+        //\App\Models\User::factory(0)->create();
+        //Creamos un UserSeeder y desde ahí se llama al userFactory
+        $this->call(UserSeeder::class);
         // Esto llama a AdminSeeder para que ejecute su metodo run
         $this->call(AdminSeeder::class);
     }
