@@ -19,19 +19,19 @@
 
         <!-- Alerta  -->
 
-    <div id="notificacion">
-        @if (Session::has('notificacion'))
-            <div class="alert alert-primary" role="alert">
-                <strong>{{ Session::get('notificacion') }}</strong>
-            </div>
-        @endif
-    </div>    
+        <div id="notificacion">
+            @if (Session::has('notificacion'))
+                <div class="alert alert-primary" role="alert">
+                    <strong>{{ Session::get('notificacion') }}</strong>
+                </div>
+            @endif
+        </div>
 
 
 
         <!-- Cuerpo -->
         <div class="cuerpo">
-            
+
 
             <div class="row mt-4">
                 <div class="col-12 contTitulo">
@@ -41,7 +41,7 @@
             {{-- AJAX estado --}}
             <div class="row">
                 <div class="col-6">
-                    <button type="button" onclick="loadEmocion()" class="btn m-5" >Mostrar Resumen</button>
+                    <button type="button" onclick="loadEmocion()" class="btn m-5">Mostrar Resumen</button>
                 </div>
                 <div class="col-6">
                     <div id="resumen"></div>
@@ -51,28 +51,28 @@
             {{-- REGISTRO --}}
             <div class="registros">
                 @foreach ($eventos as $evento)
-                <div class="registro mb-3">
-                    <form action='{{ url("trini/$evento->id") }}' method="post">
-                        @csrf
-                        @method('DELETE')
-                        <div class="row">
-                            <div class="col-12">
-                                {{ $evento['fecha'] }}
-                                {{ $evento['hora'] }}
-                                <b>{{ $evento['emocion'] }}</b>
-                                {{ $evento['actividad'] }}
+                    <div class="registro mb-3">
+                        <form action='{{ url("trini/$evento->id") }}' method="post">
+                            @csrf
+                            @method('DELETE')
+                            <div class="row">
+                                <div class="col-12">
+                                    {{ $evento['fecha'] }}
+                                    {{ $evento['hora'] }}
+                                    <b>{{ $evento['emocion'] }}</b>
+                                    {{ $evento['actividad'] }}
+                                </div>
                             </div>
-                        </div>
-                        
-                        
-                        <input type="submit" value="Eliminar" class="btn  ml-4 mt-2 mb-2">
-                        <!-- botones -->
-                        <a href='{{ url("trini/$evento->id/edit") }}' class="btn  m-1">Editar</a>
-                    </form>
-                </div>
-            @endforeach
+
+
+                            <input type="submit" value="Eliminar" class="btn  ml-4 mt-2 mb-2">
+                            <!-- botones -->
+                            <a href='{{ url("trini/$evento->id/edit") }}' class="btn  m-1">Editar</a>
+                        </form>
+                    </div>
+                @endforeach
             </div>
-            
+
             <div class="row">
                 <!-- Btn crear -->
 
@@ -85,34 +85,34 @@
                 <div class="col-12" style="text-align: center">
                     <a href='{{ url('trini/create') }}' class="btn btnN">AÑADIR</a>
                 </div>
-                
+
             </div>
         </div>
-        
+
     </div>
 </body>
 
 </html>
 
-{{--SCRIPT AJAX--}}
+{{-- SCRIPT AJAX --}}
 <script>
     function loadEmocion() {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("resumen").innerHTML =
-          this.responseText;
-        }
-      };
-      xhttp.open("GET", '/resumen', true);
-      xhttp.send();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("resumen").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", '/resumen', true);
+        xhttp.send();
     }
 </script>
 
 
-{{--SCRIPT CONTROL ALERTA NOTIFICACION--}}
+{{-- SCRIPT CONTROL ALERTA NOTIFICACION --}}
 <script>
-    setTimeout(function(){
+    setTimeout(function() {
         document.getElementById('notificacion').style.display = 'none';
     }, 1500);
 </script>

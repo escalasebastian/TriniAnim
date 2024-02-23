@@ -17,7 +17,6 @@ class AdminController extends Controller
         $usuarios = User::all();
         return view('trini.admin', [
             'usuarios' => $usuarios
-
         ]);
         // $usuarios=User::all();
         // return view('trini.admin', ['usuarios' => $usuarios]);
@@ -47,7 +46,6 @@ class AdminController extends Controller
             'imagen' => $imagenN
         ]);
     }
-
 }
 
 

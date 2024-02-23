@@ -15,9 +15,8 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        
+
         //\App\Models\User::factory(1)->create(['is_admin' => true]);
-        User::create(['name'=> 'Admin', 'userName'=>'admin','password' => static::$password ??= Hash::make('admin'), 'is_admin' => true]); // 1 es true
+        User::create(['name' => 'Admin', 'userName' => 'admin', 'password' => static::$password ??= Hash::make('admin'), 'is_admin' => true]); // 1 es true
     }
-    
 }
