@@ -19,7 +19,7 @@ Route::resource('trini', TriniAnimController::class);
 
 Route::get('/resumen', [TriniAnimController::class, 'getMedia']);
 
-Route::get('/resumen/{id}', [TriniAnimController::class, 'getMediaPrueba']);
+// Route::get('/resumen/{id}', [TriniAnimController::class, 'getMediaPrueba']);
 
 Route::get('/', function () {
     return view('auth.login');
@@ -42,6 +42,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/profile' ,[ProfileController::class,'updateNombre'])->name('profile.update');
     //Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+Route::group(['middleware' => 'admin'], function(){
+    Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'indexAdmin'])->name('admin.index');
+
 });
 
 //Route::get('prueba', [TriniAnimController::class, 'prueba']);

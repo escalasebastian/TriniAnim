@@ -107,10 +107,7 @@ class TriniAnimController extends Controller
                 'eventos' => $arrayEventos
             ]);
         } else if ($tipoUser === 1) {
-            $usuarios = User::all();
-            return view('trini.admin', [
-                'usuarios' => $usuarios
-            ]);
+            return redirect()->route('admin.index');
         }
     }
 
