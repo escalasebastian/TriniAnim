@@ -19,6 +19,8 @@ Route::resource('trini', TriniAnimController::class);
 
 Route::get('/resumen', [TriniAnimController::class, 'getMedia']);
 
+Route::get('/resumen/{id}', [TriniAnimController::class, 'getMediaPrueba']);
+
 Route::get('/', function () {
     return view('auth.login');
 });

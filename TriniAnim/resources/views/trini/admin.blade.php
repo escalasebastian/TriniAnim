@@ -15,5 +15,33 @@
     @include('layouts.navigation')
 
     <h2>eres admin</h2>
+
+    @foreach($usuarios as $usuario)
+    <h2>{{$usuario->name}}</h2>
+    {{-- AJAX estado --}}
+    <div class="row">
+        <div class="col-6">
+            <button type="button" onclick="loadEmocion({{$usuario->id}})" class="btn m-5" >Mostrar Resumen</button>
+        </div>
+        <div class="col-6">
+            <div id="{{"resumen".$usuario->id}}"></div>
+        </div>
+    </div>
+    @endforeach
 </body>
 </html>
+
+{{--SCRIPT AJAX--}}
+<script>
+    function loadEmocion(id) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("resumen"+id).innerHTML =
+          this.responseText;
+        }
+      };
+      xhttp.open("GET", '/resumen/'+id, true);
+      xhttp.send();
+    }
+</script>
