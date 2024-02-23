@@ -42,7 +42,7 @@
             {{-- AJAX estado --}}
             {{-- <div class="row">
                 <div class="col-6">
-                    <button type="button" onclick="loadEmocion()" class="btn m-5" >Mostrar Resumen</button>
+                    <button type="button" onclick="loadEmocion()" class="btn m-5">Mostrar Resumen</button>
                 </div>
                 <div class="col-6">
                     <div id="resumen"></div>
@@ -89,34 +89,34 @@
                 <div class="col-12" style="text-align: center">
                     <a href='{{ url('trini/create') }}' class="btn btnN">AÑADIR</a>
                 </div>
-                
+
             </div>
         </div>
-        
+
     </div>
 </body>
 
 </html>
 
-{{--SCRIPT AJAX--}}
+{{-- SCRIPT AJAX --}}
 <script>
     function loadEmocion() {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("resumen").innerHTML =
-          this.responseText;
-        }
-      };
-      xhttp.open("GET", '/resumen', true);
-      xhttp.send();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("resumen").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", '/resumen', true);
+        xhttp.send();
     }
 </script>
 
 
-{{--SCRIPT CONTROL ALERTA NOTIFICACION--}}
+{{-- SCRIPT CONTROL ALERTA NOTIFICACION --}}
 <script>
-    setTimeout(function(){
+    setTimeout(function() {
         document.getElementById('notificacion').style.display = 'none';
     }, 1500);
 </script>
