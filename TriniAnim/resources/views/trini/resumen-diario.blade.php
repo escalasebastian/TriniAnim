@@ -13,25 +13,26 @@
 </head>
 
 <body>
-
-    <div class="container min-h-screen">
+    {{-- CABECERA --}}
+    <div class="container-fluid barraNavegacion">
         @include('layouts.navigation')
+    </div>
+
+    {{-- RESTO DE LA WEB --}}
+    <div class="container">
 
         <!-- Alerta  -->
-
-    <div id="notificacion">
-        @if (Session::has('notificacion'))
-            <div class="alert alert-primary" role="alert">
-                <strong>{{ Session::get('notificacion') }}</strong>
-            </div>
-        @endif
-    </div>    
-
+        <div id="notificacion">
+            @if (Session::has('notificacion'))
+                <div class="alert alert-primary" role="alert">
+                    <strong>{{ Session::get('notificacion') }}</strong>
+                </div>
+            @endif
+        </div>    
 
 
         <!-- Cuerpo -->
         <div class="cuerpo">
-            
 
             <div class="row mt-4">
                 <div class="col-12 contTitulo">
@@ -39,41 +40,44 @@
                 </div>
             </div>
             {{-- AJAX estado --}}
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-6">
                     <button type="button" onclick="loadEmocion()" class="btn m-5" >Mostrar Resumen</button>
                 </div>
                 <div class="col-6">
                     <div id="resumen"></div>
                 </div>
-            </div>
+            </div> --}}
 
             {{-- REGISTRO --}}
-            <div class="registros">
+            <div class="registros" style="margin-top: 15px">
                 @foreach ($eventos as $evento)
                 <div class="registro mb-3">
                     <form action='{{ url("trini/$evento->id") }}' method="post">
                         @csrf
                         @method('DELETE')
                         <div class="row">
-                            <div class="col-12">
-                                {{ $evento['fecha'] }}
-                                {{ $evento['hora'] }}
-                                <b>{{ $evento['emocion'] }}</b>
-                                {{ $evento['actividad'] }}
+                            <div class="col-12 col-sm-8" style="letter-spacing: 1px;
+                            word-spacing: 2px;">
+                                <b style="font-size: 20px; text-transform:uppercase;">{{ $evento['emocion'] }} |</b>
+                                <label style="font-size: 20px;">{{ $evento['actividad'] }}
+                                a las
+                                {{ $evento['hora'] }} 
+                                del día
+                                {{ $evento['fecha'] }} </label>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <input style="padding:2px;" type="submit" value="Eliminar" class="btnRegistro">
+                            <!-- botones -->
+                            <a href='{{ url("trini/$evento->id/edit") }}' class="btnRegistro ml-3">Editar</a>
                             </div>
                         </div>
-                        
-                        
-                        <input type="submit" value="Eliminar" class="btn  ml-4 mt-2 mb-2">
-                        <!-- botones -->
-                        <a href='{{ url("trini/$evento->id/edit") }}' class="btn  m-1">Editar</a>
                     </form>
                 </div>
             @endforeach
             </div>
             
-            <div class="row">
+            <div class="row mt-4 mb-4">
                 <!-- Btn crear -->
 
                 {{-- <div class="col-6 contBtnLog">

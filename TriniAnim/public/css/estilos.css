@@ -10,6 +10,7 @@
 
 .logo {
 	width: 160px;
+	border-radius: 10px;
 }
 
 .contenedorLinea{
@@ -20,6 +21,7 @@
 .linea{
 	width: 100%;
 	border: 2px solid black;
+	border-radius: 15px;
 }
 
 /*TITULO*/
@@ -27,8 +29,18 @@
 	text-align: center;
 }
 
+/*
 .titulo{
 	border: 2px solid #eeff41;
+}
+*/
+
+.titulo {
+    border: 2px solid #16134e;
+    /* background-color: #511fa6; */
+    color: #581fb1;
+    border-radius: 10px;
+    /* background: linear-gradient(to bottom right, #4E2394 48%, #FF56EE 100%); */
 }
 
 /* INPUT */
@@ -37,6 +49,7 @@
 	border-radius: 0px;
 	padding: 15px;
 	border-color:#69699b;
+	border-radius: 5px;
 }
 
 .txt:focus{
@@ -52,20 +65,58 @@
 	text-align: center;
 }
 
-.btn{
+/* .btn{
 	background-color: #eeff41;
 	border-radius: 0px;
 	padding: 10px 15px;
 	width: 160px;
+} */
+
+.btn {
+    background: radial-gradient(circle, #6422c3, #111246);
+    border-radius: 10px;
+    padding: 10px 15px;
+    width: 100%;
+    color: white;
 }
 
-.btn:hover{
+/* .btn:hover{
 	background-color: #111246;
+	color:white;
+} */
+
+.btn:hover{
+	background: radial-gradient(circle, #111246, #111246);
 	color:white;
 }
 
+
+
 #btnL{
 	font-weight: bold;
+}
+
+.enlaceBarra{
+	color: white;
+	text-decoration: none;
+}
+
+.enlaceBarra:hover{
+	text-decoration: underline;
+}
+
+.btnRegistro{
+	border: 1px solid #4e2394;
+	border-radius: 5px;
+	padding: 5px 10px;
+	text-decoration: none;
+	color: black;
+	letter-spacing: 1px;
+}
+
+.btnRegistro:hover{
+	box-shadow: 3px 4px #a43cc0;
+	letter-spacing: 1px;
 }
 
 
@@ -80,27 +131,54 @@
 
 
 /* BARRA */
+.subarra{
+	width: auto;
+}
+
+.contenedorBarra{
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.barraNavegacion{
+	padding: 0px;
+}
+
 .barra{
 	height: 140px;
 	display: flex;
 	justify-content: space-between;
-	border-bottom: 1px solid black;
+	/* border-bottom: 1px solid black; */
+	background: linear-gradient(to bottom right, #4E2394 48%, #FF56EE 100%);
 }
 
 .logoB {
+	max-width: none;
 	width: 140px;
 }
 
-.desplegable{
-	margin-top: 5px;
+.desplegable {
+    margin-right: 15px;
+    display: flex;
+    text-align: center;
+    align-items: center;
 }
 
 /* RESUMEN DIARIO */
+.registros{
+	background-color: #9400d314;
+    padding: 10px 10px 1px 10px;
+    color: black;
+	border-radius: 10px;
+}
+
 .registro{
 	padding: 15px;
 	text-align: center;
-    color: grey;
+    /* color: grey; */
 	border: 1px solid #69699b;
+	border-radius: 5px;
 }
 
 .btnN{
@@ -112,6 +190,18 @@
 	width: 100%;
 	padding: 15px;
 	text-align: center;
-	border-radius: 0px;
+	border-radius: 5px;
 	border: 1px solid #69699b;
+}
+
+/*PERFIL*/
+.tituloPerfil{
+	border-bottom: 1px solid black;
+	padding: 5px;
+}
+
+.contenedorRegistros{
+	padding-top: 2em;
+	padding-bottom: 2em;
+	background-color: white;
 }

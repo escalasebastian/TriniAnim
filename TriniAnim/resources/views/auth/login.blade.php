@@ -36,29 +36,32 @@
             <form autocomplete="off" method="POST" action="{{ route('login') }}">
                 @csrf
 
-                <div class="row mt-3">
-                    <!-- Nombre de Usuario -->
-                    <div class="col-12 mt-3">
-                        {{-- <input type="text" name="nombre" class="form-control txt" placeholder="Usuario"> --}}
-                        <input type="text" name="userName" class="form-control txt" value="{{ old('userName') }}" autofocus placeholder="Usuario">
-                        <!-- Aquí irían los mensajes de error relacionados con el campo 'userName' -->
-                        <x-input-error :messages="$errors->get('userName')" class="mt-2" />
-                    </div>
-                    <!-- Contraseña -->
-                    <div class="col-12 mt-4">
-                        {{-- <input type="text" name="contraseña" class="form-control txt" placeholder="Contraseña"> --}}
-                        <input type="password" name="password" class="form-control txt" placeholder="Contraseña">
-                        <!-- Aquí irían los mensajes de error relacionados con el campo 'password' -->
-                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                    </div>
-                </div>   
-                <div class="row mt-3">
-                    <div class="col-6 mt-4 contBtnLog">
+                <div class="registros" style="margin-top: 25px">
+                    <div class="row mt-2">
+                        <!-- Nombre de Usuario -->
+                        <div class="col-12">
+                            {{-- <input type="text" name="nombre" class="form-control txt" placeholder="Usuario"> --}}
+                            <input type="text" name="userName" class="form-control txt" value="{{ old('userName') }}" autofocus placeholder="Usuario">
+                            <!-- Aquí irían los mensajes de error relacionados con el campo 'userName' -->
+                            <x-input-error :messages="$errors->get('userName')" class="mt-2" />
+                        </div>
+                        <!-- Contraseña -->
+                        <div class="col-12 mt-4 mb-3">
+                            {{-- <input type="text" name="contraseña" class="form-control txt" placeholder="Contraseña"> --}}
+                            <input type="password" name="password" class="form-control txt" placeholder="Contraseña">
+                            <!-- Aquí irían los mensajes de error relacionados con el campo 'password' -->
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                        </div>
+                    </div>   
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-6 contBtnLog">
                         {{-- <input type="submit" class="btn" id="btnL" value="LOGIN"> --}}
                         <!-- Botón 'Acceder' -->
                         <button type="submit" class="btn" id="btnL">LOGIN</button>
                     </div>
-                    <div class="col-6 mt-4">
+                    <div class="col-6">
                         {{-- <input type="submit" class="btn" value="REGISTRARSE"> --}}
                         <!-- Enlace 'Nuevo usuario' -->
                         <a href="{{ route('register') }}" class="btn">REGISTRARSE</a>

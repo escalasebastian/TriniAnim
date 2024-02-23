@@ -108,8 +108,8 @@ class TriniAnimController extends Controller
                 $hora=$splitHoraCompleta[0];
                 $minutos=$splitHoraCompleta[1];
                 // Añadir al evento
-                $eventoNuevo->fecha = "dia: ".$dia;
-                $eventoNuevo->hora = "hora: ".$hora."h";
+                $eventoNuevo->fecha = $dia;
+                $eventoNuevo->hora = ($hora+1)."h";
             }
             // add array
             array_push($arrayEventos, $eventoNuevo);

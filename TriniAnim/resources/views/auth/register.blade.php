@@ -33,41 +33,44 @@
             <form autocomplete="off" method="POST" action="{{ route('register') }}">
                 @csrf
 
-                <div class="row mt-3">
-                    {{-- NOMBRE --}}
-                    <div class="col-12 mt-3">
-                        {{-- <input type="text" name="nombre" class="form-control txt" placeholder="Usuario"> --}}
-                        <input  class="form-control txt" type="text" name="name" value="{{ old('name') }}" autofocus  placeholder="Nombre">
-                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                    </div>
-
-                    {{-- NOMBRE usuario --}}
-                    <div class="col-12 mt-3">
-                        {{-- <input type="text" name="nombre" class="form-control txt" placeholder="Usuario"> --}}
-                        <input class="form-control txt" type="text" name="userName" value="{{ old('userName') }}" placeholder="Usuario" >
-                        <x-input-error :messages="$errors->get('userName')" class="mt-2" />
-                    </div>
-
-                    {{-- CONTRASEÑA --}}
-                    <div class="col-12 mt-4">
-                        <input type="password" name="password" class="form-control txt" placeholder="Contraseña">
-                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                    </div>
-
-                    {{-- Confirmar Contraseña --}}
-                    <div class="col-12 mt-4">
-                        <input type="password" name="password_confirmation" class="form-control txt" placeholder="Confirmar contraseña">
-                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-                    </div>
-                </div>   
-                <div class="row mt-3">
-                    <div class="col-6 mt-4 contBtnLog">
+                <div class="registros" style="margin-top: 15px">
+                    <div class="row mt-1">
+                        {{-- NOMBRE --}}
+                        <div class="col-12">
+                            {{-- <input type="text" name="nombre" class="form-control txt" placeholder="Usuario"> --}}
+                            <input  class="form-control txt" type="text" name="name" value="{{ old('name') }}" autofocus  placeholder="Nombre">
+                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        </div>
+    
+                        {{-- NOMBRE usuario --}}
+                        <div class="col-12 mt-4">
+                            {{-- <input type="text" name="nombre" class="form-control txt" placeholder="Usuario"> --}}
+                            <input class="form-control txt" type="text" name="userName" value="{{ old('userName') }}" placeholder="Usuario" >
+                            <x-input-error :messages="$errors->get('userName')" class="mt-2" />
+                        </div>
+    
+                        {{-- CONTRASEÑA --}}
+                        <div class="col-12 mt-4">
+                            <input type="password" name="password" class="form-control txt" placeholder="Contraseña">
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                        </div>
+    
+                        {{-- Confirmar Contraseña --}}
+                        <div class="col-12 mt-4 mb-3">
+                            <input type="password" name="password_confirmation" class="form-control txt" placeholder="Confirmar contraseña">
+                            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                        </div>
+                    </div>  
+                </div>
+                 
+                <div class="row mt-4">
+                    <div class="col-6 contBtnLog">
                         <a class="btn" href="{{ route('login') }}">
                             ¿Ya registrado?
                         </a>
                     </div>
-                    <div class="col-6 mt-4">
-                        <input type="submit" class="btn" value="REGISTRARSE">
+                    <div class="col-6">
+                        <input type="submit" class="btn" id="btnL" value="REGISTRARSE">
                     </div>
                 </div>
             </form>
