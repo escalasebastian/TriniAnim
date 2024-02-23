@@ -15,5 +15,12 @@
     @include('layouts.navigation')
 
     <h2>eres admin</h2>
+
+    @foreach ($usuarios as $usuario)
+        <button class="btn btn-primary">{{$usuario->name}}</button><br>
+    @endforeach
+
+
+
 </body>
 </html>

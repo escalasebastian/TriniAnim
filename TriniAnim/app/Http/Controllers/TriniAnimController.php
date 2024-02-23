@@ -127,7 +127,7 @@ class TriniAnimController extends Controller
         ]);
     }else if($tipoUser===1){
 
-        return view('trini.admin');
+        return redirect()->route('admin.index');
 
     }
 

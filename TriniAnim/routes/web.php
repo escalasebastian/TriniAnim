@@ -42,6 +42,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+Route::group(['middleware' => 'admin'], function(){
+    Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'indexAdmin'])->name('admin.index');
+
+});
+
 //Route::get('prueba', [TriniAnimController::class, 'prueba']);
 
 require __DIR__.'/auth.php';
