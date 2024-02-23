@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
 
 Route::group(['middleware' => 'admin'], function(){
     Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'indexAdmin'])->name('admin.index');
+    Route::get('/admin/{id}', [\App\Http\Controllers\AdminController::class, 'getMediaAdmin'])->name('admin.media');
 
 });
 

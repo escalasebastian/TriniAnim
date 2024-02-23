@@ -37,30 +37,7 @@ class TriniAnimController extends Controller
         ]);
     }
 
-    public function getMediaPrueba(string $id)
-    {
-        $sumatorio = 0;
-        $usuario = User::find($id);
-        $eventos = Evento::where('usuario_id', $usuario->id)->get();
-        foreach ($eventos as $evento) {
-            $sumatorio += $evento->emocion_id;
-        }
-        $divisor = sizeof($eventos);
-        if ($divisor > 0) { // Si tiene algun evento
-            $media = round($sumatorio / $divisor);
-            $emocionResumen = Emocion::find($media);
-            $nombreArray = explode("b", $emocionResumen->imagen);
-            $imagenN = $nombreArray[0] . $nombreArray[1];
-        } else { // Si NO tiene ningun evento
-            $media = 3; // La neutra
-            $emocionResumen = Emocion::find($media);
-            $imagenN = $emocionResumen->imagen;
-        }
-
-        return view('trini.media-diaria', [
-            'imagen' => $imagenN
-        ]);
-    }
+   
 
     /**
      * Display a listing of the resource.

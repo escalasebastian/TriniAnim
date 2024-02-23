@@ -24,7 +24,7 @@
             <button type="button" onclick="loadEmocion({{$usuario->id}})" class="btn m-5" >Mostrar Resumen</button>
         </div>
         <div class="col-6">
-            <div id="{{"resumen".$usuario->id}}"></div>
+            <div id="{{"admin".$usuario->id}}"></div>
         </div>
     </div>
     @endforeach
@@ -37,11 +37,11 @@
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("resumen"+id).innerHTML =
+          document.getElementById("admin"+id).innerHTML =
           this.responseText;
         }
       };
-      xhttp.open("GET", '/resumen/'+id, true);
+      xhttp.open("GET", '/admin/'+id, true);
       xhttp.send();
     }
 </script>
