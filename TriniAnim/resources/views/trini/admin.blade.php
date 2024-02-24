@@ -8,29 +8,42 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="icon" type="image/x-icon" href="imagenes/logo.png">
-    <title>Resumen diario</title>
+    <title>Administrador</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
 
-    @include('layouts.navigation')
+    {{-- CABECERA --}}
+    <div class="container-fluid barraNavegacion">
+        @include('layouts.navigationAdmin')
+    </div>
 
-    <h2>eres admin</h2>
+    {{-- RESTO DE LA WEB --}}
+    <div class="container">
 
-    @foreach ($usuarios as $usuario)
-        <h2>{{ $usuario->name }}</h2>
-        {{-- AJAX estado --}}
-        <div class="row">
-            <div class="col-6">
-                <button type="button" onclick="loadEmocion({{ $usuario->id }})" class="btn m-5">Mostrar
-                    Resumen</button>
-            </div>
-            <div class="col-6">
-                <div id="{{ 'admin' . $usuario->id }}"></div>
+        <div class="row mt-4">
+            <div class="col-12 contTitulo">
+                <h1 class="titulo">Listado de usuarios</h1>
             </div>
         </div>
-    @endforeach
+
+        @foreach ($usuarios as $usuario)
+            <div class="registros2 mb-3 mt-3">
+                <div class="row">
+                    <div class="col-6">
+                        <h2 style="text-align: center">Ususario: <b>{{ $usuario->name }}</b></h2>
+                        <button type="button" onclick="loadEmocion({{ $usuario->id }})" class="btn">Mostrar
+                            Resumen</button>
+                    </div>
+                    <div class="col-6 imgEstado">
+                        <div id="{{ 'admin' . $usuario->id }}"></div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+    
 </body>
 
 </html>

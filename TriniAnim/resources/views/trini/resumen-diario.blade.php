@@ -24,7 +24,7 @@
         <!-- Alerta  -->
         <div id="notificacion">
             @if (Session::has('notificacion'))
-                <div class="alert alert-primary" role="alert">
+                <div class="alert alert-warning mt-2" role="alert">
                     <strong>{{ Session::get('notificacion') }}</strong>
                 </div>
             @endif
@@ -59,7 +59,7 @@
                         <div class="row">
                             <div class="col-12 col-sm-8" style="letter-spacing: 1px;
                             word-spacing: 2px;">
-                                <b style="font-size: 20px; text-transform:uppercase;">{{ $evento['emocion'] }} |</b>
+                                <b style="font-size: 20px; text-transform:uppercase;">| {{ $evento['emocion'] }} |</b>
                                 <label style="font-size: 20px;">{{ $evento['actividad'] }}
                                 a las
                                 {{ $evento['hora'] }} 
@@ -118,5 +118,5 @@
 <script>
     setTimeout(function() {
         document.getElementById('notificacion').style.display = 'none';
-    }, 1500);
+    }, 2000);
 </script>

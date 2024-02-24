@@ -27,7 +27,7 @@
         <div class="cuerpo">
             <div class="row mt-4">
                 <div class="col-12 contTitulo">
-                    <h1 class="titulo">NUEVO REGISTRO</h1>
+                    <h1 class="titulo">Nuevo registro</h1>
                 </div>
             </div>
             <form autocomplete="off" method="POST" action="{{ route('register') }}">

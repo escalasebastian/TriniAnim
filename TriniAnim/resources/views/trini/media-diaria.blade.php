@@ -1,5 +1,3 @@
-<div >
+<img class="imgMedia" src="{{url('imagenes/'.$imagen)}}">
 
-    <div style="text-align: center"><img src="{{url('imagenes/'.$imagen)}}"></div>
 
-</div>

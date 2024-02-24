@@ -23,24 +23,15 @@
 
             <div class="col-7 col-sm-9">
                 <div class="row contenedorBarra">
-                    <div class="col-12 col-sm-4 subarra tamanioEnlaces" style="margin-right: auto">
-                        <label style="color: white">
-                            <button type="button" onclick="loadEmocion()" class="enlaceBarra">Estado Actual</button>  / 
-                        </label>
-                        
-                        <label>
-                            <a href="{{ route('dashboard') }}" class="enlaceBarra">Diario</a>
-                        </label>
-                    </div>
-                    <div class="col-12 col-sm-4 estado">
-                        <div id="resumen"></div>
+                    <div class="col-12 col-sm-8 bienvenida">
+                        <h2 class="estiloLetra">¡Bienvenido Administrador!</h2>
                     </div>
 
                     <!-- Settings Dropdown -->
-                    <div class="desplegable col-12 col-sm-4 subarra">
+                    <div class="desplegable col-12 col-sm-4">
                         <x-dropdown align="right" width="100">
                             <x-slot name="trigger">
-                                <button class="tamanioDesplegable inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                     <div>Usuario: {{ Auth::user()->name }}</div>
 
                                     <div class="ms-1">
