@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="icon" type="image/x-icon" href="imagenes/logo.png">
+    <script src="js/script.js"></script>
     <title>Resumen diario</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -97,26 +98,3 @@
 </body>
 
 </html>
-
-{{-- SCRIPT AJAX --}}
-<script>
-    function loadEmocion() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("resumen").innerHTML =
-                    this.responseText;
-            }
-        };
-        xhttp.open("GET", '/resumen', true);
-        xhttp.send();
-    }
-</script>
-
-
-{{-- SCRIPT CONTROL ALERTA NOTIFICACION --}}
-<script>
-    setTimeout(function() {
-        document.getElementById('notificacion').style.display = 'none';
-    }, 2000);
-</script>

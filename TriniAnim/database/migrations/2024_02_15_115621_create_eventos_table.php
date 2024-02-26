@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('usuario_id');
             $table->integer('actividad_id');
             $table->integer('emocion_id');
+            $table->string('descripcion')->nullable();
             $table->timestamps();
         });
     }

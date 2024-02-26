@@ -26,6 +26,8 @@
                     <div class="col-12 col-sm-4 subarra tamanioEnlaces" style="margin-right: auto">
                         <label style="color: white">
                             <button type="button" onclick="loadEmocion()" class="enlaceBarra">Estado Actual</button>  / 
+                            {{-- <button type="button" id="btnBarra" class="enlaceBarra">Estado Actual</button>  /  --}}
+
                         </label>
                         
                         <label>

@@ -14,7 +14,7 @@ class AdminController extends Controller
 
     public function indexAdmin()
     {
-        $usuarios = User::all();
+        $usuarios = User::whereNotIn('userName', ['admin'])->get();
         return view('trini.admin', [
             'usuarios' => $usuarios
         ]);
@@ -24,6 +24,7 @@ class AdminController extends Controller
 
     public function getMediaAdmin(string $id)
     {
+        $emocion = null;
         $sumatorio = 0;
         $usuario = User::find($id);
         $eventos = Evento::where('usuario_id', $usuario->id)->get();
@@ -36,6 +37,7 @@ class AdminController extends Controller
             $emocionResumen = Emocion::find($media);
             $nombreArray = explode("b", $emocionResumen->imagen);
             $imagenN = $nombreArray[0] . $nombreArray[1];
+            $emocion = $emocionResumen->emocion;
         } else { // Si NO tiene ningun evento
             $media = 3; // La neutra
             $emocionResumen = Emocion::find($media);
@@ -43,9 +45,8 @@ class AdminController extends Controller
         }
 
         return view('trini.media-diaria', [
-            'imagen' => $imagenN
+            'imagen' => $imagenN,
+            'emocion' => $emocion
         ]);
     }
 }
-
-
