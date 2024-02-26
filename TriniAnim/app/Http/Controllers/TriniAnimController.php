@@ -94,7 +94,10 @@ class TriniAnimController extends Controller
     public function create()
     {
         $evento = new Evento();
-        $listaAct = DB::select('select distinct * from actividads');
+        $listaAct = DB::select('select DISTINCT * from actividads');
+       
+        //return $listaAct;
+
         $listaEm = DB::select('select distinct * from emocions');
         return view('trini.save', [
             'evento' => $evento,
@@ -118,6 +121,22 @@ class TriniAnimController extends Controller
         // En el redirect va la url
         return Redirect::to('/trini')->with('notificacion', 'Se creó el evento correctamente');
     }
+
+    public function addActividad(Request $request){
+        $actividad=new Actividad();
+        
+        if(!empty($request->nombreActividad)){
+            $actividad->nombre=$request->nombreActividad;        
+            $actividad->save();
+            $retorno=Redirect::to('/trini/create')->with('status', 'nombre-cambiado');
+        }else{
+            $retorno=Redirect::to('/trini/create');
+        }
+        
+        return $retorno;
+    }
+
+
 
     /**
      * Display the specified resource.

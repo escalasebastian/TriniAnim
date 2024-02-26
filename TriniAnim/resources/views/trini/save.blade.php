@@ -26,14 +26,43 @@
                 </div>
             </div>
 
-            <div>
+        <div class="registros" style="margin-top: 15px"> 
+            
+            {{--NUEVA ACTIVIDAD--}}
+            
+            <div class=" mb-3">
+                    <form action='{{url('trini/add')}}' method="POST">
+                    @csrf
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <input type="submit" class="btnAnadir" value="+">
+                                    <input type="text" class="form-control txt" name="nombreActividad" placeholder="Nueva Actividad">                                        
+                                </div>
+
+                @if (session('status') === 'nombre-cambiado')
+                    <p
+                        x-data="{ show: true }"
+                        x-show="show"
+                        x-transition
+                        x-init="setTimeout(() => show = false, 2000)"
+                        class="text-sm text-gray-600"
+                        
+                    >{{ __('Actividad añadida correctamente.') }}</p>
+                @endif
+                        </div>
+                    </div>
+                </form>    
+            </div>
+
+
                 <form autocomplete="off" action='{{ url("trini/$evento->id") }}' method="post">
                     @csrf
                     @if ($evento->id)
                         <input type="hidden" name="_method" value="put">
                     @endif
 
-                    <div class="registros" style="margin-top: 15px">
+                    
                         {{-- ACTIVIDAD --}}
                         <div class="row mb-3">
                             <div class="col-12">
@@ -49,6 +78,7 @@
                                     @endforeach
                                 </select>
                             </div>
+                           
                         </div>
 
                         {{-- ESTADO --}}

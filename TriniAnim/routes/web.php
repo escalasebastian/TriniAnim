@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('trini/add', [TriniAnimController::class, 'addActividad']);
+
 Route::resource('trini', TriniAnimController::class);
 
 Route::get('/resumen', [TriniAnimController::class, 'getMedia']);

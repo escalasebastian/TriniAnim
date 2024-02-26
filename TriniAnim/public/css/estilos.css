@@ -80,12 +80,21 @@
     color: white;
 }
 
+.btnAnadir{
+	background: radial-gradient(circle, #6422c3, #111246);
+    border-radius: 10px;
+    padding: 10px 15px;
+    /*width: 100%;*/
+    color: white;
+	text-decoration: none;
+}
+
 /* .btn:hover{
 	background-color: #111246;
 	color:white;
 } */
 
-.btn:hover{
+.btn:hover, .btnAnadir:hover{
 	background: radial-gradient(circle, #111246, #111246);
 	color:white;
 }
