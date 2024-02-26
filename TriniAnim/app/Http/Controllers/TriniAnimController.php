@@ -128,7 +128,7 @@ class TriniAnimController extends Controller
         if(!empty($request->nombreActividad)){
             $actividad->nombre=$request->nombreActividad;        
             $actividad->save();
-            $retorno=Redirect::to('/trini/create')->with('status', 'nombre-cambiado');
+            $retorno=Redirect::to('/trini/create')->with('notificacion', 'Actividad añadida correctamente');
         }else{
             $retorno=Redirect::to('/trini/create');
         }
