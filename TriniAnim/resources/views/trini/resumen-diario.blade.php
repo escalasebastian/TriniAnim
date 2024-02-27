@@ -40,15 +40,20 @@
                     <h1 class="titulo">Resumen diario</h1>
                 </div>
             </div>
-            {{-- AJAX estado --}}
-            {{-- <div class="row">
-                <div class="col-6">
-                    <button type="button" onclick="loadEmocion()" class="btn m-5">Mostrar Resumen</button>
+
+            {{-- FILTRADO --}}
+            <div class="row mt-1">
+                <div class="col-12">
+                    <form action='{{url("/eventosFiltrados")}}' method="post">
+                        @csrf
+                        <div class="input-group">
+                            <input type="date" id="fecha" name="dia" max="" required class="form-control" style="border-color: #69699b">
+                            <input type="submit" value="Filtrar" class="btnAnadir">
+                        </div>
+                    </form>
                 </div>
-                <div class="col-6">
-                    <div id="resumen"></div>
-                </div>
-            </div> --}}
+            </div>
+            
 
             {{-- REGISTRO --}}
             <div class="registros" style="margin-top: 15px">
@@ -98,3 +103,11 @@
 </body>
 
 </html>
+
+<script>
+    // Obtener la fecha actual
+    var hoy = new Date().toISOString().split('T')[0];
+    
+    // Asignar la fecha actual al input
+    document.getElementById("fecha").setAttribute("max", hoy);
+</script>
