@@ -88,6 +88,50 @@ class TriniAnimController extends Controller
         }
     }
 
+    public function filtrar(Request $request){
+        $usuario_id = Auth::user()->id;
+        $dia = $request->dia;
+        $eventos=Evento::whereDate('created_at', '=', date('Y-m-d', strtotime($dia)))
+                ->where('usuario_id', $usuario_id)->get();
+
+        $arrayEventos = array();
+        foreach ($eventos as $eventoViejo) {
+            $eventoNuevo = new EventoN();
+            //introduccion id
+            $eventoNuevo->id = $eventoViejo->id;
+            // Creación actividad
+            $actividad = Actividad::find($eventoViejo->actividad_id);
+            $eventoNuevo->actividad = $actividad->nombre;
+            // Creación emoción
+            $emocion = Emocion::find($eventoViejo->emocion_id);
+            $eventoNuevo->emocion = $emocion->emocion;
+            // Fecha y hora
+            if (isset($eventoViejo->created_at)) { // Si es que tiene created_at
+                $splitCreated_at = explode(" ", $eventoViejo->created_at);
+                $fecha = $splitCreated_at[0];
+                $horaCompleta = $splitCreated_at[1];
+                // split de la fecha
+                $splitFecha = explode("-", $fecha);
+                $dia = $splitFecha[2];
+                $mes = $splitFecha[1];
+                $anio = $splitFecha[0];
+                // Split de la hora
+                $splitHoraCompleta = explode(":", $horaCompleta);
+                $hora = $splitHoraCompleta[0];
+                $minutos = $splitHoraCompleta[1];
+                // Añadir al evento
+                $eventoNuevo->fecha = $dia;
+                $eventoNuevo->hora = ($hora+1)."h";
+            }
+            // add array
+            array_push($arrayEventos, $eventoNuevo);
+        }
+
+        return view('trini.resumen-diario', [
+            'eventos' => $arrayEventos
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -186,4 +230,5 @@ class TriniAnimController extends Controller
         $evento->delete();
         return Redirect::to('/dashboard')->with('notificacion', 'Evento eliminado correctamente');
     }
+
 }
