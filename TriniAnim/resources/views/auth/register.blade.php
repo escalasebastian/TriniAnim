@@ -65,7 +65,7 @@
                  
                 <div class="row mt-4">
                     <div class="col-6 contBtnLog">
-                        <a class="btn" href="{{ route('login') }}">
+                        <a class="btn btnSecundario" href="{{ route('login') }}">
                             ¿Ya registrado?
                         </a>
                     </div>

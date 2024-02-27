@@ -80,6 +80,12 @@
     color: white;
 }
 
+.btnSecundario{
+    background: #f7ebfc !important;
+    color: #581fb1;
+    font-weight: bold;
+}
+
 .btnAnadir{
 	background: radial-gradient(circle, #6422c3, #111246);
     border-radius: 10px;
@@ -97,6 +103,11 @@
 .btn:hover, .btnAnadir:hover{
 	background: radial-gradient(circle, #111246, #111246);
 	color:white;
+}
+
+.btnSecundario:hover{
+	border-color: #111246;
+	color:#581fb1;
 }
 
 

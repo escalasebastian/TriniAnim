@@ -91,7 +91,7 @@
                                     {{-- Asocia al radio la imagen (al seleccionar la imagen se selecciona el radio oculto) --}}
                                     <label>
                                         {{-- <input class="d-none" name="em" type="radio" value="{{ $item->id }}" onclick="prueba({{ $item->id }})"> --}}
-                                        <input class="d-none" name="em" type="radio" value="{{ $item->id }}" id="btnEstado" onclick="prueba('{{ $item->id }}', '{{ url('imagenes/') }}')">
+                                        <input required class="d-none" name="em" type="radio" value="{{ $item->id }}" id="btnEstado" onclick="prueba('{{ $item->id }}', '{{ url('imagenes/') }}')">
                                         <div class="contenerImagenes">
                                             <img class="imagenes" src='{{ url('imagenes/' . $item->imagen) }}'
                                                 id="{{ $item->id }}">
@@ -109,18 +109,17 @@
                             <input type="text" class="form-control txt" name="descripcion" placeholder="Descripcion">
                         </div>
                     </div>
-
+                </div>
                     {{-- BOTON --}}
                     <div class="row mt-4 mb-4">
                         <div class="col-6 contBtnLog">
-                            <a href='{{ url('trini') }}' class="btn">CANCELAR</a>
+                            <a href='{{ url('trini') }}' class="btn btnSecundario">CANCELAR</a>
                         </div>
                         <div class="col-6">
                             <input type="submit" value="GUARDAR" class="btn btnN">
                         </div>
                     </div>
-                </form>
-            </div>
+            </form>
         </div>
     </div>
 </body>
