@@ -109,7 +109,7 @@
                             <input type="text" class="form-control txt" name="descripcion" placeholder="Descripcion">
                         </div>
                     </div>
-                </div>
+            </div>
                     {{-- BOTON --}}
                     <div class="row mt-4 mb-4">
                         <div class="col-6 contBtnLog">
