@@ -8,13 +8,14 @@
     <link rel="stylesheet" href='{{ url('css/bootstrap.min.css') }}'>
     <link rel="stylesheet" href='{{ url('css/estilos.css') }}'>
     <link rel="icon" type="image/x-icon" href='{{ url('imagenes/logo.png') }}'>
-    <script src='{{url('js/script.js')}}'></script>
+    <script src='{{ url('js/script.js') }}'></script>
 
     <title>Nuva actividad</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+ <body onload="prueba('{{$evento->emocion_id}}', '{{ url('imagenes/') }}')">  {{-- cuando carga la ventana hago que se ejecute la función para si hay una emocion seleccionada se muestre --}}
+
     {{-- CABECERA --}}
     <div class="container-fluid barraNavegacion">
         @include('layouts.navigation')
@@ -41,7 +42,6 @@
             <div class="registros" style="margin-top: 15px">
 
                 {{-- NUEVA ACTIVIDAD --}}
-
                 <div class=" mb-3">
                     <form action='{{ url('trini/add') }}' method="POST" autocomplete="off">
                         @csrf
@@ -49,19 +49,9 @@
                             <div class="col-12">
                                 <div class="input-group">
                                     <input type="submit" class="btnAnadir" value="+">
-                                    <input type="text" class="form-control txt" name="nombreActividad" placeholder="Nueva Actividad">
+                                    <input type="text" class="form-control txt" name="nombreActividad"
+                                        placeholder="Nueva Actividad">
                                 </div>
-
-                                {{-- @if (session('status') === 'nombre-cambiado')
-                    <p
-                        x-data="{ show: true }"
-                        x-show="show"
-                        x-transition
-                        x-init="setTimeout(() => show = false, 2000)"
-                        class="text-sm text-gray-600"
-                        
-                    >{{ __('Actividad añadida correctamente.') }}</p>
-                @endif --}}
                             </div>
                         </div>
                     </form>
@@ -91,7 +81,6 @@
                                 @endforeach
                             </select>
                         </div>
-
                     </div>
 
                     {{-- ESTADO --}}
@@ -120,20 +109,19 @@
                             <input type="text" class="form-control txt" name="descripcion" placeholder="Descripcion">
                         </div>
                     </div>
-            </div>
 
-            {{-- BOTON --}}
-            <div class="row mt-4 mb-4">
-                <div class="col-6 contBtnLog">
-                    <a href='{{ url('trini') }}' class="btn">CANCELAR</a>
-                </div>
-                <div class="col-6">
-                    <input type="submit" value="GUARDAR" class="btn btnN">
-                </div>
+                    {{-- BOTON --}}
+                    <div class="row mt-4 mb-4">
+                        <div class="col-6 contBtnLog">
+                            <a href='{{ url('trini') }}' class="btn">CANCELAR</a>
+                        </div>
+                        <div class="col-6">
+                            <input type="submit" value="GUARDAR" class="btn btnN">
+                        </div>
+                    </div>
+                </form>
             </div>
-            </form>
         </div>
-    </div>
     </div>
 </body>
 

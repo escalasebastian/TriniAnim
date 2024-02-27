@@ -22,7 +22,6 @@ function loadEmocion() {
 
 
 // Save
-// cuando carga la ventana hago que se ejecute la función para si hay una emocion seleccionada se muestre
 
 function prueba(id, blade) {
     //ruta dnd estan las imagenes
@@ -56,4 +55,27 @@ function loadEmocionAdmin(id) {
     xhttp.send();
 }
 
-//window.onload = prueba;
+// Gráfico
+
+function crearGrafico(emociones, eventos) {
+    var tipoGrafico=document.getElementById('tipoGrafico').value;
+    var xValues = emociones;
+    var yValues = eventos;
+    var colores = [
+        "#FE3916",
+        "#F57615",
+        "#FDD51B",
+        "#A1DE38",
+        "#23B522"
+    ];
+    new Chart("grafico", {
+        type: tipoGrafico,
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: colores,
+                data: yValues
+            }]
+        }
+    });
+}

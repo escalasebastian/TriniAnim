@@ -9,12 +9,16 @@
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="icon" type="image/x-icon" href="imagenes/logo.png">
     <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title>Administrador</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body onload='crearGrafico({!! $emociones !!}, {!! $eventos !!})'>
+
+    {{-- Div vacio notificación --}}
     <div id="notificacion"></div>
+
     {{-- CABECERA --}}
     <div class="container-fluid barraNavegacion">
         @include('layouts.navigationAdmin')
@@ -23,6 +27,31 @@
     {{-- RESTO DE LA WEB --}}
     <div class="container">
 
+        {{-- Gráfico --}}
+        <div class="row mt-4">
+            <div class="col-12 contTitulo">
+                <h1 class="titulo">Emociones de los usuarios</h1>
+            </div>
+        </div>
+        <div class="registros">
+            <div class="input-group">
+                <span id="txtTipoGrafico">Tipo de gráfico:</span>
+                <select name="tipoGrafico" id="tipoGrafico"
+                    onchange='crearGrafico({!! $emociones !!}, {!! $eventos !!})' class="form-select select"
+                    style="border-color: #69699B">
+                    <option value="pie">Tarta</option>
+                    <option value="doughnut">Donut</option>
+                    <option value="bar">Barras</option>
+                </select>
+            </div>
+
+
+            <div class="d-flex justify-content-center mb-2">
+                <canvas id="grafico" style="width:100%;max-width:700px"></canvas> {{-- CSS!!! --}}
+            </div>
+        </div>
+
+        {{-- Eventos --}}
         <div class="row mt-4">
             <div class="col-12 contTitulo">
                 <h1 class="titulo">Listado de usuarios</h1>
@@ -34,7 +63,8 @@
                 <div class="row">
                     <div class="col-6">
                         <h2 style="text-align: center">Ususario: <b>{{ $usuario->name }}</b></h2>
-                        <button type="button" onclick="loadEmocionAdmin({{ $usuario->id }})" class="btn">Mostrar Resumen</button>
+                        <button type="button" onclick="loadEmocionAdmin({{ $usuario->id }})" class="btn">Mostrar
+                            Resumen</button>
                     </div>
                     <div class="col-6 imgEstado">
                         <div id="{{ 'admin' . $usuario->id }}"></div>
@@ -43,8 +73,7 @@
             </div>
         @endforeach
     </div>
-    
+
 </body>
 
 </html>
-

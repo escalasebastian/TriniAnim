@@ -24,7 +24,7 @@
             <div class="col-7 col-sm-9">
                 <div class="row contenedorBarra">
                     <div class="col-12 col-sm-8 bienvenida">
-                        <h2 class="estiloLetra">¡Bienvenido Administrador!</h2>
+                        <h2 class="estiloLetra">¡Bienvenido, Administrador!</h2>
                     </div>
 
                     <!-- Settings Dropdown -->
