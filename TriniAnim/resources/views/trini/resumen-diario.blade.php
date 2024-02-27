@@ -13,7 +13,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body onload="filtro()">
     {{-- CABECERA --}}
     <div class="container-fluid barraNavegacion">
         @include('layouts.navigation')
@@ -104,10 +104,3 @@
 
 </html>
 
-<script>
-    // Obtener la fecha actual
-    var hoy = new Date().toISOString().split('T')[0];
-    
-    // Asignar la fecha actual al input
-    document.getElementById("fecha").setAttribute("max", hoy);
-</script>

@@ -282,7 +282,7 @@
 /* Gráfico */
 #txtTipoGrafico{
 	background: radial-gradient(circle, #111246, #111246);
-    padding: 15px 15px;
+    padding: 10px 15px;
     color: white;
 	text-decoration: none;
 	border-bottom-left-radius: 10px;

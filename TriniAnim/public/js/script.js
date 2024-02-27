@@ -79,3 +79,11 @@ function crearGrafico(emociones, eventos) {
         }
     });
 }
+
+function filtro(){
+    // Obtener la fecha actual
+    var hoy = new Date().toISOString().split('T')[0];
+
+    // Asignar la fecha actual al input
+    document.getElementById("fecha").setAttribute("max", hoy);
+}

@@ -37,17 +37,16 @@
             <div class="input-group">
                 <span id="txtTipoGrafico">Tipo de gráfico:</span>
                 <select name="tipoGrafico" id="tipoGrafico"
-                    onchange='crearGrafico({!! $emociones !!}, {!! $eventos !!})' class="form-select select"
-                    style="border-color: #69699B">
+                    onchange='crearGrafico({!! $emociones !!}, {!! $eventos !!})' class="form-select"
+                    style="border-color: #69699B;text-align: center;">
                     <option value="pie">Tarta</option>
                     <option value="doughnut">Donut</option>
-                    <option value="bar">Barras</option>
+                    {{-- <option value="bar">Barras</option> --}}
                 </select>
             </div>
 
-
             <div class="d-flex justify-content-center mb-2">
-                <canvas id="grafico" style="width:100%;max-width:700px"></canvas> {{-- CSS!!! --}}
+                <canvas id="grafico" style="width:100%;max-width:600px"></canvas> {{-- CSS!!! --}}
             </div>
         </div>
 

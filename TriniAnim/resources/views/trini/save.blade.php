@@ -48,9 +48,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="input-group">
-                                    <input type="submit" class="btnAnadir" value="+">
                                     <input type="text" class="form-control txt" name="nombreActividad"
                                         placeholder="Nueva Actividad">
+                                    <input type="submit" class="btnAnadir" value="+">
                                 </div>
                             </div>
                         </div>
