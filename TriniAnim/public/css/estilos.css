@@ -279,6 +279,17 @@
 	margin: 0px;
 }
 
+/* Gráfico */
+#txtTipoGrafico{
+	background: radial-gradient(circle, #111246, #111246);
+    padding: 15px 15px;
+    color: white;
+	text-decoration: none;
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+
 /* Estilo para dispositivos móviles */
 @media only screen and (max-width: 768px) {
 	.desplegable {
