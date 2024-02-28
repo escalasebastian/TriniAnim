@@ -64,7 +64,7 @@
                     <div class="col-6">
                         {{-- <input type="submit" class="btn" value="REGISTRARSE"> --}}
                         <!-- Enlace 'Nuevo usuario' -->
-                        <a href="{{ route('register') }}" class="btn">REGISTRARSE</a>
+                        <a href="{{ route('register') }}" class="btn btnSecundario">REGISTRARSE</a>
                     </div>
                 </div>
             </form>
