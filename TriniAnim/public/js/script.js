@@ -14,9 +14,9 @@ function loadEmocion() {
 }
 
 // El tiempo que dura la notificación
-    setTimeout(function () {
-        document.getElementById('notificacion').style.display = 'none';
-    }, 2000);
+setTimeout(function () {
+    document.getElementById('notificacion').style.display = 'none';
+}, 2000);
 
 
 
@@ -58,7 +58,7 @@ function loadEmocionAdmin(id) {
 // Gráfico
 
 function crearGrafico(emociones, eventos) {
-    var tipoGrafico=document.getElementById('tipoGrafico').value;
+    var tipoGrafico = document.getElementById('tipoGrafico').value;
     var xValues = emociones;
     var yValues = eventos;
     var colores = [
@@ -80,7 +80,7 @@ function crearGrafico(emociones, eventos) {
     });
 }
 
-function filtro(){
+function filtro() {
     // Obtener la fecha actual
     var hoy = new Date().toISOString().split('T')[0];
 

@@ -14,7 +14,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body onload='crearGrafico({!! $emociones !!}, {!! $eventos !!})'>
+<body onload='crearGrafico({!! $emociones !!}, {!! $medias !!})'>
 
     {{-- Div vacio notificación --}}
     <div id="notificacion"></div>
@@ -37,7 +37,7 @@
             <div class="input-group">
                 <span id="txtTipoGrafico">Tipo de gráfico:</span>
                 <select name="tipoGrafico" id="tipoGrafico"
-                    onchange='crearGrafico({!! $emociones !!}, {!! $eventos !!})' class="form-select"
+                    onchange='crearGrafico({!! $emociones !!}, {!! $medias !!})' class="form-select"
                     style="border-color: #69699B;text-align: center;">
                     <option value="pie">Tarta</option>
                     <option value="doughnut">Donut</option>

@@ -37,7 +37,7 @@ class TriniAnimController extends Controller
         ]);
     }
 
-   
+
 
     /**
      * Display a listing of the resource.
@@ -75,7 +75,7 @@ class TriniAnimController extends Controller
                     $minutos = $splitHoraCompleta[1];
                     // Añadir al evento
                     $eventoNuevo->fecha = $dia;
-                    $eventoNuevo->hora = ($hora+1)."h";
+                    $eventoNuevo->hora = ($hora + 1) . "h";
                 }
                 // add array
                 array_push($arrayEventos, $eventoNuevo);
@@ -88,11 +88,12 @@ class TriniAnimController extends Controller
         }
     }
 
-    public function filtrar(Request $request){
+    public function filtrar(Request $request)
+    {
         $usuario_id = Auth::user()->id;
         $dia = $request->dia;
-        $eventos=Evento::whereDate('created_at', '=', date('Y-m-d', strtotime($dia)))
-                ->where('usuario_id', $usuario_id)->get();
+        $eventos = Evento::whereDate('created_at', '=', date('Y-m-d', strtotime($dia)))
+            ->where('usuario_id', $usuario_id)->get();
 
         $arrayEventos = array();
         foreach ($eventos as $eventoViejo) {
@@ -121,7 +122,7 @@ class TriniAnimController extends Controller
                 $minutos = $splitHoraCompleta[1];
                 // Añadir al evento
                 $eventoNuevo->fecha = $dia;
-                $eventoNuevo->hora = ($hora+1)."h";
+                $eventoNuevo->hora = ($hora + 1) . "h";
             }
             // add array
             array_push($arrayEventos, $eventoNuevo);
@@ -139,7 +140,7 @@ class TriniAnimController extends Controller
     {
         $evento = new Evento();
         $listaAct = DB::select('select DISTINCT * from actividads');
-       
+
         //return $listaAct;
 
         $listaEm = DB::select('select distinct * from emocions');
@@ -166,17 +167,18 @@ class TriniAnimController extends Controller
         return Redirect::to('/trini')->with('notificacion', 'Se creó el evento correctamente');
     }
 
-    public function addActividad(Request $request){
-        $actividad=new Actividad();
-        
-        if(!empty($request->nombreActividad)){
-            $actividad->nombre=$request->nombreActividad;        
+    public function addActividad(Request $request)
+    {
+        $actividad = new Actividad();
+
+        if (!empty($request->nombreActividad)) {
+            $actividad->nombre = $request->nombreActividad;
             $actividad->save();
-            $retorno=Redirect::to('/trini/create')->with('notificacion', 'Actividad añadida correctamente');
-        }else{
-            $retorno=Redirect::to('/trini/create');
+            $retorno = Redirect::to('/trini/create')->with('notificacion', 'Actividad añadida correctamente');
+        } else {
+            $retorno = Redirect::to('/trini/create');
         }
-        
+
         return $retorno;
     }
 
@@ -230,5 +232,4 @@ class TriniAnimController extends Controller
         $evento->delete();
         return Redirect::to('/dashboard')->with('notificacion', 'Evento eliminado correctamente');
     }
-
 }

@@ -22,44 +22,109 @@ class AdminController extends Controller
         }
         $arrayEmocionesJs = json_encode($arrayEmociones);
 
-        // Eventos
-        $eventos = Evento::all();
+        // // Eventos
+        // $eventos = Evento::all();
+        // $contEnfadado = 0;
+        // $contTriste = 0;
+        // $contNormal = 0;
+        // $contContento = 0;
+        // $contEuforico = 0;
+        // foreach ($eventos as $evento) {
+        //     switch ($evento->emocion_id) {
+        //         case 1:
+        //             $contEnfadado++;
+        //             break;
+        //         case 2:
+        //             $contTriste++;
+        //             break;
+        //         case 3:
+        //             $contNormal++;
+        //             break;
+        //         case 4:
+        //             $contContento++;
+        //             break;
+        //         case 5:
+        //             $contEuforico++;
+        //             break;
+        //         default:
+        //             # code...
+        //             break;
+        //     }
+        // }
+        // $arrayEventosValues = array($contEnfadado, $contTriste, $contNormal, $contContento, $contEuforico);
+        // $arrayEventosValuesJs = json_encode($arrayEventosValues);
+
+        // Otra forma
+
+        // $arrayMedias = array();
+        // foreach ($usuarios as $usuario) {
+        //     $sumatorio = 0;
+        //     $eventosUsuario = Evento::where('usuario_id', $usuario->id)->get();
+        //     $media = 0;
+        //     $divisor = sizeof($eventosUsuario);
+        //     if ($divisor > 0) { // Si tiene algun evento
+        //         foreach ($eventosUsuario as $evento) {
+        //             $sumatorio += $evento->emocion_id;
+        //         }
+        //         $media = round($sumatorio / $divisor);
+        //     } else { // Si NO tiene ningun evento
+        //         $media = 0;
+        //     }
+        //     array_push($arrayMedias, $media);
+        // }
+        // $arrayMediasJS = json_encode($arrayMedias);
+        // return $arrayMediasJS;
+
+
+        // Usuarios
+        $usuarios = User::whereNotIn('userName', ['admin'])->get();
+        // Medias
+        $arrayMedias = array();
         $contEnfadado = 0;
         $contTriste = 0;
         $contNormal = 0;
         $contContento = 0;
         $contEuforico = 0;
-        foreach ($eventos as $evento) {
-            switch ($evento->emocion_id) {
-                case 1:
-                    $contEnfadado++;
-                    break;
-                case 2:
-                    $contTriste++;
-                    break;
-                case 3:
-                    $contNormal++;
-                    break;
-                case 4:
-                    $contContento++;
-                    break;
-                case 5:
-                    $contEuforico++;
-                    break;
-                default:
-                    # code...
-                    break;
+        foreach ($usuarios as $usuario) {
+            $sumatorio = 0;
+            $eventosUsuario = Evento::where('usuario_id', $usuario->id)->get();
+            $media = 0;
+            $divisor = sizeof($eventosUsuario);
+            if ($divisor > 0) { // Si tiene algun evento
+                foreach ($eventosUsuario as $evento) {
+                    $sumatorio += $evento->emocion_id;
+                }
+                $media = round($sumatorio / $divisor);
+                switch ($media) {
+                    case 1:
+                        $contEnfadado++;
+                        break;
+                    case 2:
+                        $contTriste++;
+                        break;
+                    case 3:
+                        $contNormal++;
+                        break;
+                    case 4:
+                        $contContento++;
+                        break;
+                    case 5:
+                        $contEuforico++;
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
             }
         }
-        $arrayEventosValues = array($contEnfadado, $contTriste, $contNormal, $contContento, $contEuforico);
-        $arrayEventosValuesJs = json_encode($arrayEventosValues);
 
-        // Usuarios
-        $usuarios = User::whereNotIn('userName', ['admin'])->get();
+        $arrayMedias = array($contEnfadado, $contTriste, $contNormal, $contContento, $contEuforico);
+        $arrayMediasJs = json_encode($arrayMedias);
         return view('trini.admin', [
             'usuarios' => $usuarios,
             'emociones' => $arrayEmocionesJs,
-            'eventos' => $arrayEventosValuesJs
+            // 'eventos' => $arrayEventosValuesJs
+            'medias' => $arrayMediasJs
         ]);
         // $usuarios=User::all();
         // return view('trini.admin', ['usuarios' => $usuarios]);
